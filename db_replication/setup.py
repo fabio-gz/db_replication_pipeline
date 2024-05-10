@@ -6,7 +6,8 @@ setup(
     install_requires=[
         "dagster",
         "pandas",
-        "dagster-embedded-elt"
+        "dagster-embedded-elt",
+        
     ],
     extras_require={"dev": ["dagster-webserver", "pytest"]},
 )

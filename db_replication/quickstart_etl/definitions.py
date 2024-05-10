@@ -1,16 +1,12 @@
-from dagster import (
-    Definitions,
-    ScheduleDefinition,
-    define_asset_job,
-    load_assets_from_package_module,
-)
+from dagster import Definitions, load_assets_from_modules
+from .assets import Aw_replication
+from .resources import sling_resources
 
-from . import assets
-
-daily_refresh_schedule = ScheduleDefinition(
-    job=define_asset_job(name="all_assets_job"), cron_schedule="0 0 * * *"
-)
+sling_assets = load_assets_from_modules(modules=[Aw_replication])
 
 defs = Definitions(
-    assets=load_assets_from_package_module(assets), schedules=[daily_refresh_schedule]
+    assets=[*sling_assets],
+    resources={
+        'sling': sling_resources.sling
+    }
 )
