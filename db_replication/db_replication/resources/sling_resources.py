@@ -1,6 +1,7 @@
 from dagster_embedded_elt.sling.resources import SlingConnectionResource, SlingResource
 from dagster import EnvVar, AssetKey
-
+from dagster_dbt import DbtCliResource
+from ..assets.constants import DBT_DIRECTORY
 
 source = SlingConnectionResource(
     name="MY_POSTGRES",
@@ -30,12 +31,15 @@ replication_config = {
 
     "defaults":
         {"mode": "full-refresh",
-        "object": "{stream_schema}_{stream_table}"
+        "object": "{stream_table}"
         },
 
     "streams":
-        {"person.address": {"object": "person"},
-        "humanresources.*": {"object": "humanresources"}
+        {"person.person": None,
+        "humanresources.employee": None
         }
 }
 
+dbt_resource = DbtCliResource(
+    project_dir=DBT_DIRECTORY
+)

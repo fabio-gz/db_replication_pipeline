@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: person
+    schema: Adventureworks
+    tables:
+      - name: person
+      - name: employee

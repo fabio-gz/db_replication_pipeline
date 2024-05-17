@@ -3,3 +3,4 @@
 .egg-info
 bq_account.json
 .DS_Store
+logs/
