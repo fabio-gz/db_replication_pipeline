@@ -1,0 +1,6 @@
+dagster==1.7.5
+dagster-dbt==0.23.5
+dagster-embedded-elt==0.23.5
+dagster-webserver==1.7.5
+dbt-core==1.7.14
+dbt-bigquery==1.7.9

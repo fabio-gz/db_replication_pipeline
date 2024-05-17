@@ -7,7 +7,7 @@ setup(
         "dagster",
         "pandas",
         "dagster-embedded-elt",
-        "dagster_dbt",
+        "dagster-dbt",
         "dbt-bigquery"
         
     ],
